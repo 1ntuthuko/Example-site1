@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxurity</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0b1f14;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 28px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #0b1f14;
+      z-index: 100;
+      border-bottom: 1px solid rgba(212,175,55,0.2);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+      color: #d4af37;
+    }
+
+    .menu-btn {
+      font-size: 22px;
+      color: #d4af37;
+      cursor: pointer;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100%;
+      background: #10281b;
+      padding: 80px 20px;
+      transition: left 0.3s ease;
+      z-index: 200;
+      border-right: 1px solid rgba(212,175,55,0.2);
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #d4af37;
+      text-decoration: none;
+      margin: 18px 0;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      z-index: 150;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .welcome {
+      padding: 140px 24px 60px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .welcome h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      margin-bottom: 20px;
+      color: #d4af37;
+    }
+
+    .welcome p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #e6e6e6;
+    }
+
+    .highlight-gold {
+      color: #d4af37;
+      font-weight: 500;
+    }
+
+    .membership {
+      text-align: center;
+      font-size: 18px;
+      margin: 50px 0 10px;
+      color: #d4af37;
+      letter-spacing: 1px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #132a1c;
+      padding: 28px;
+      margin: 16px;
+      border-radius: 14px;
+      max-width: 340px;
+      width: 100%;
+      border: 1px solid rgba(212,175,55,0.25);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      color: #d4af37;
+      margin-bottom: 12px;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .nav-card {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .btn-buy {
+      background: #d4af37;
+      color: #0b1f14;
+    }
+
+    .btn-skip {
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      background: transparent;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      padding: 30px 10px;
+      margin-top: 80px;
+      border-top: 1px solid rgba(212,175,55,0.2);
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .welcome h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <div class="sidebar" id="sidebar">
+    <a href="#">Home</a>
+    <a href="#">Membership</a>
+    <a href="#">Markets</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <header>
+    <div class="logo">Luxurity</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <section class="welcome">
+    <h1>Welcome to the World of Bitcoin</h1>
+    <p>
+      Hi Trader, this is a place for you to make 
+      <span class="highlight-gold">Trillions</span> 
+      if not <b>Millions</b>.
+    </p>
+  </section>
+
+  <div class="membership">★ Join Our Membership ★</div>
+
+  <section class="cards">
+    <div class="card">
+      <div class="card-title">♤ Professional ♤</div>
+      <p>
+        This place is for <span class="highlight-gold">Pros</span> only — not by status or wealth,
+        but by being born with the power to become one.
+      </p>
+      <nav class="nav-card">
+        <div class="btn btn-buy">Buy</div>
+        <div class="btn btn-skip">Skip</div>
+      </nav>
+    </div>
+  </section>
+
+  <footer>
+    1943–2026 Luxurity, All Rights Reserved.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("overlay").classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
